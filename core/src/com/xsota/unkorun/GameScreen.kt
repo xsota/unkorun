@@ -19,7 +19,7 @@ import com.badlogic.gdx.utils.viewport.FillViewport
 
 class GameScreen(game: UnkoRun) : Screen {
   val stage : Stage = Stage(FillViewport(game.SCREEN_SIZE_WIDTH, game.SCREEN_SIZE_HEIGHT))
-  val jumpUnkoImage: Image = Image(Texture("badlogic.jpg"))
+  val jumpUnkoImage: Image = Image(Texture("unchi.png"))
 
   override fun show() {
     Gdx.input.inputProcessor = stage
