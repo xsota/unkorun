@@ -31,8 +31,8 @@ class GameScreen(game: UnkoRun) : Screen {
           return
         }
 
-        val up = Actions.moveBy(0f, 120f, 0.3f, Interpolation.pow2)
-        val down = Actions.moveBy(0f, -120f, 0.5f, Interpolation.pow2)
+        val up = Actions.moveBy(0f, 144f, 0.3f, Interpolation.pow2)
+        val down = Actions.moveBy(0f, -144f, 0.3f, Interpolation.pow2)
 
         val jump = Actions.sequence()
         jump.addAction(up)
