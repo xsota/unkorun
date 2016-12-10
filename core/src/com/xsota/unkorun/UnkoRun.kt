@@ -4,8 +4,8 @@ import com.badlogic.gdx.Game
 import com.badlogic.gdx.Screen
 
 class UnkoRun : Game() {
-  val SCREEN_SIZE_WIDTH: Float = 800f
-  val SCREEN_SIZE_HEIGHT: Float = 480f
+  val SCREEN_SIZE_WIDTH: Float = 512f
+  val SCREEN_SIZE_HEIGHT: Float = 288f
 
   override fun create() {
     setScreen(GameScreen(this))
