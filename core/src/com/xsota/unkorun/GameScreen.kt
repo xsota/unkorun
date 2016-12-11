@@ -17,9 +17,10 @@ import com.badlogic.gdx.utils.viewport.FillViewport
  * Created by sota on 2016/11/27.
  */
 
-class GameScreen(game: UnkoRun) : Screen {
+class GameScreen(val game: UnkoRun) : Screen {
   val stage : Stage = Stage(FillViewport(game.SCREEN_SIZE_WIDTH, game.SCREEN_SIZE_HEIGHT))
   val jumpUnkoImage: Image = Image(Texture("unchi.png"))
+  val enemy = Image(Texture("unchi.png"))
 
   override fun show() {
     Gdx.input.inputProcessor = stage
@@ -42,6 +43,14 @@ class GameScreen(game: UnkoRun) : Screen {
       }
     } )
 
+
+
+    enemy.setPosition(game.SCREEN_SIZE_WIDTH,0f)
+    val toLeft = Actions.moveBy(-(game.SCREEN_SIZE_WIDTH), 0f, 3f, Interpolation.linear)
+
+    enemy.addAction(toLeft)
+
+    stage.addActor(enemy)
     stage.addActor(jumpUnkoImage)
   }
 
@@ -49,6 +58,12 @@ class GameScreen(game: UnkoRun) : Screen {
     Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
     stage.act(Gdx.graphics.deltaTime)
     stage.draw()
+
+
+
+    if ((enemy.x.toInt() in jumpUnkoImage.x.toInt()-3..jumpUnkoImage.x.toInt()+3) && jumpUnkoImage.y <= enemy.y){
+      Gdx.app.log("hit","うんこ")
+    }
   }
 
   override fun resize(width: Int, height: Int) {
