@@ -27,9 +27,9 @@ class GameScreen(val game: UnkoRun) : Screen {
     jumpUnkoImage.setPosition(100f,0f)
 
     jumpUnkoImage.addListener(object : ClickListener(){
-      override fun clicked(event: InputEvent?, x: Float, y: Float) {
+      override fun touchDown(event: InputEvent?, x: Float, y: Float, pointer: Int, button: Int): Boolean {
         if (jumpUnkoImage.hasActions()){
-          return
+          super.touchDown(event, x, y, pointer, button)
         }
 
         val up = Actions.moveBy(0f, 144f, 0.3f, Interpolation.pow2)
@@ -40,8 +40,9 @@ class GameScreen(val game: UnkoRun) : Screen {
         jump.addAction(down)
 
         jumpUnkoImage.addAction(jump)
+        return super.touchDown(event, x, y, pointer, button)
       }
-    } )
+    })
 
 
 
